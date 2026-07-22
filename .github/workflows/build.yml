@@ -1,0 +1,39 @@
+name: Build IBM 3178 Firmware
+on: [workflow_dispatch] # 버튼을 눌러 수동으로 빌드를 켤 수 있게 만듭니다.
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install AVR Compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-avr avr-libc binutils-avr
+
+      - name: Install Pip Dependencies (Fixed PEP 668)
+        run: |
+          python3 -m pip install --break-system-packages --upgrade pip
+          python3 -m pip install --break-system-packages -r requirements.txt || true
+          python3 -m pip install --break-system-packages qmk
+
+      - name: Compile 3178 Firmware
+        run: |
+          make xwhatsit/ibm/3178/universal:default SKIP_GIT=true
+
+      - name: Upload Result Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: ibm-3178-firmware
+          path: |
+            *.hex
+            .build/*.hex
