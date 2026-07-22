@@ -270,7 +270,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CAPSENSE_CAL_THRESHOLD_OFFSET 96
 
 #if !CAPSENSE_CAL_ENABLED
-#define CAPSENSE_HARDCODED_THRESHOLD 142
+#define CAPSENSE_HARDCODED_THRESHOLD 230
 #endif
 
 #define CAPSENSE_KEYMAP_COL_TO_PHYSICAL_COL(col) (4+(col))
