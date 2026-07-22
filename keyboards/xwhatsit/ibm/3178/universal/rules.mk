@@ -24,4 +24,3 @@ VIAL_INSECURE_ENABLE = no
 
 CUSTOM_MATRIX=lite
 SRC += keyboards/xwhatsit/matrix.c keyboards/xwhatsit/util_comm.c
-HAPTIC_ENABLE += SOLENOID
