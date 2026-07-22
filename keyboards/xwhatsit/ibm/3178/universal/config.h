@@ -260,8 +260,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CAPSENSE_DAC_SETTLE_TIME_US 8
 #define CAPSENSE_HARDCODED_SAMPLE_TIME 3
 
-#define CAPSENSE_CAL_ENABLED 1
-// #define CAPSENSE_CAL_ENABLED 0
+//#define CAPSENSE_CAL_ENABLED 1
+#define CAPSENSE_CAL_ENABLED 0
 #define CAPSENSE_CAL_DEBUG 1
 // #define CAPSENSE_CAL_DEBUG 0
 #define CAPSENSE_CAL_INIT_REPS 16
